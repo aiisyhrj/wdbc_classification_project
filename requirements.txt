@@ -1,0 +1,95 @@
+============================================================
+SHORT REPORT — WDBC Binary Classification
+============================================================
+
+1. WHICH CLASSIFIERS DID YOU TEST?
+------------------------------------------------------------
+Four classifiers were tested on the Breast Cancer Wisconsin dataset,
+using an 80/20 train/test split (random_state=42):
+
+  - SVM (Support Vector Machine): finds the optimal separating
+    hyperplane with maximum margin between classes.
+
+  - Decision Tree: recursively splits data by the feature that
+    gives the best information gain at each node.
+
+  - KNN (K-Nearest Neighbours): classifies each sample by
+    majority vote among its k closest training neighbours.
+
+  - Random Forest: an ensemble of many decision trees that vote
+    together; reduces overfitting compared to a single tree.
+
+2. WHICH CLASSIFIER GAVE THE BEST ACCURACY?
+------------------------------------------------------------
+  SVM           : 95%
+  Decision Tree : 95%
+  KNN           : 96%
+  Random Forest : 96%  ← BEST (selected automatically by the code)
+
+Both KNN and Random Forest reached 96% accuracy. The code
+automatically selected Random Forest as the best classifier
+(first model with the highest accuracy in the dictionary).
+
+Random Forest is generally a strong choice because it combines
+many decision trees and reduces variance through averaging,
+making it robust on real-world datasets like this one.
+
+3. WHAT DOES THE CONFUSION MATRIX SHOW?
+------------------------------------------------------------
+The confusion matrix is generated for the last model trained
+in the loop (Random Forest in this case) and plotted against
+the test set (114 samples):
+
+              Predicted
+              Malignant  Benign
+Actual  Malignant  [ TN      FP ]
+        Benign     [ FN      TP ]
+
+  - True Negatives  (TN): correctly identified malignant tumours
+  - False Positives (FP): malignant tumours wrongly called benign
+  - False Negatives (FN): benign tumours wrongly called malignant
+  - True Positives  (TP): correctly identified benign tumours
+
+The matrix shows that the model makes very few errors, with most
+samples falling on the main diagonal (correct predictions).
+
+4. WAS THE MODEL GOOD AT PREDICTING BOTH CLASSES?
+------------------------------------------------------------
+Yes — the model performed well on both classes:
+
+  - Precision for benign = 0.96 (96% of predicted benign were truly benign)
+  - Recall for benign = 0.99 (99% of actual benign cases were found)
+  - Recall for malignant is implied by the confusion matrix.
+
+In a medical context, false negatives (missing a real cancer)
+are more dangerous than false positives. The high recall for
+benign and high precision overall show the model is well-suited
+for this task.
+
+5. WHY IS DOCUMENTATION IMPORTANT IN AN OPEN-SOURCE ML PROJECT?
+------------------------------------------------------------
+Good documentation is critical for several reasons:
+
+  a. Reproducibility — other developers can re-run your experiment
+     and get the same results by following the README and
+     requirements.txt.
+
+  b. Transparency — inline comments and a clear report explain
+     WHY decisions were made (e.g. why we use an 80/20 split,
+     which metric to trust), not just what the code does.
+
+  c. Collaboration — a well-structured project lets teammates or
+     contributors understand and extend the code without having
+     to decode it from scratch.
+
+  d. Trust — in medical ML applications, doctors and regulators
+     need to understand how a model works before trusting its
+     predictions. Documentation bridges the gap between engineers
+     and non-engineers.
+
+  e. Maintenance — ML projects evolve; documented code is far
+     easier to update, debug, or retrain on new data months later.
+
+============================================================
+END OF REPORT
+============================================================
