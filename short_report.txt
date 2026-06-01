@@ -70,24 +70,20 @@ for this task.
 ------------------------------------------------------------
 Good documentation is critical for several reasons:
 
-  a. Reproducibility — other developers can re-run your experiment
+  -  Reproducibility — other developers can re-run your experiment
      and get the same results by following the README and
      requirements.txt.
 
-  b. Transparency — inline comments and a clear report explain
-     WHY decisions were made (e.g. why we use an 80/20 split,
-     which metric to trust), not just what the code does.
-
-  c. Collaboration — a well-structured project lets teammates or
+  -  Collaboration — a well-structured project lets teammates or
      contributors understand and extend the code without having
      to decode it from scratch.
 
-  d. Trust — in medical ML applications, doctors and regulators
+  -  Trust — in medical ML applications, doctors and regulators
      need to understand how a model works before trusting its
      predictions. Documentation bridges the gap between engineers
      and non-engineers.
 
-  e. Maintenance — ML projects evolve; documented code is far
+  -  Maintenance — ML projects evolve; documented code is far
      easier to update, debug, or retrain on new data months later.
 
 
